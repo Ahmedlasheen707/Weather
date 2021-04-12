@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/index.css" />
+    <title>weather</title>
+  </head>
+  <body>
+    <h1 class="header">Weather</h1>
+    <div class="form">
+      <input
+        type="text"
+        name="zip"
+        id="zip"
+        placeholder="enter your zip code here"
+        class="input"
+      />
+      <textarea name="feelings" id="feelings"> </textarea>
+      <button name="submit" value="Check" id="generate">generate</button>
+    </div>
+    <div id="entryHolder">
+      <div id="date"></div>
+      <div id="temp"></div>
+      <div id="content"></div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>

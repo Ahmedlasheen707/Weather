@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(
+    to right,
+    #0089ba,
+    #1c789b,
+    #29667e,
+    #2f5563,
+    #32444a
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2rem;
+  overflow-x: hidden;
+  color: white;
+}
+.header {
+  font-size: 3rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-bottom: 4rem;
+  letter-spacing: 0.3rem;
+}
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#zip {
+  width: 20rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: transparent;
+  margin-bottom: 1rem;
+}
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+}
+#feelings {
+  width: 25rem;
+  height: 20rem;
+  background-color: transparent;
+  outline: none;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+#generate {
+  color: white;
+  padding: 0.5rem 3rem;
+  font-size: 1.2rem;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+#entryHolder {
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+}
+#entryHolder div {
+  margin: 1rem;
+}
+@media only screen and (max-width: 600px) {
+  #zip {
+    width: 10rem;
+  }
+  #feelings {
+    width: 15rem;
+  }
+  #entryHolder {
+    font-size: 1rem;
+  }
+}
