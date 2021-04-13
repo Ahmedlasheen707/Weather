@@ -1,9 +1,25 @@
+const isValidZipCode = (code) => {
+  if (code.length !== 5) return false;
+  for (let i = 0; i < code.length; i++) {
+    if (!(code[i] >= "0" && code[i] <= "9")) return false;
+  }
+  return true;
+};
 const getWeather = async () => {
   let zipCode = document.getElementById("zip").value;
+  if (!isValidZipCode(zipCode)) {
+    alert("wrong zip code");
+    return;
+  }
+  const API_KEY = "1ac4855f5d3fbe8f12e7e27796cb5321";
   const res = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=1ac4855f5d3fbe8f12e7e27796cb5321&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${API_KEY}&units=metric`
   );
   const data = await res.json();
+  if (data.cod === "404") {
+    alert("city not found");
+    return;
+  }
   return {
     temperature: Math.round(Number(data.main.temp)),
     date: new Date().toLocaleString(),
@@ -14,6 +30,9 @@ const getWeather = async () => {
   };
 };
 const sendWeather = async (path, data) => {
+  if (data === undefined) {
+    return;
+  }
   console.log(data);
   const res = await fetch(path, {
     method: "POST",
@@ -46,6 +65,9 @@ const getData = async () => {
 document.getElementById("generate").addEventListener("click", () => {
   getWeather().then((weatherData) => {
     sendWeather("/data", weatherData).then((res) => {
+      if (res === undefined) {
+        return;
+      }
       if (res.status === "ok") {
         getData().then((data) => {
           changeUI(data);
